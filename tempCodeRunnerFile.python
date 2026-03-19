@@ -1,0 +1,58 @@
+from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QWidget
+from PyQt5.QtGui import QPixmap, QFont
+from PyQt5.QtCore import Qt
+import sys
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("Jarvis AI")
+window.setGeometry(100, 100, 800, 700)
+window.setStyleSheet("background-color: black;")
+
+# ===== CENTER IMAGE =====
+label = QLabel(window)
+pixmap = QPixmap("ironman.png")  # 🔥 apni image yaha daal
+label.setPixmap(pixmap)
+label.setAlignment(Qt.AlignCenter)
+label.setGeometry(150, 50, 500, 500)
+
+# ===== TITLE =====
+title = QLabel("Jarvis Personal AI", window)
+title.setStyleSheet("color: cyan;")
+title.setFont(QFont("Arial", 12))
+title.move(300, 10)
+
+# ===== BUTTON STYLE =====
+btn_style = """
+QPushButton {
+    background-color: cyan;
+    color: black;
+    border-radius: 15px;
+    padding: 10px;
+}
+QPushButton:hover {
+    background-color: #00ffff;
+}
+"""
+
+# ===== LEFT BUTTONS =====
+btn1 = QPushButton("Greeting", window)
+btn1.setStyleSheet(btn_style)
+btn1.setGeometry(50, 500, 120, 40)
+
+btn2 = QPushButton("Replay", window)
+btn2.setStyleSheet(btn_style)
+btn2.setGeometry(50, 550, 120, 40)
+
+# ===== RIGHT BUTTONS =====
+btn3 = QPushButton("Battery", window)
+btn3.setStyleSheet(btn_style)
+btn3.setGeometry(630, 500, 120, 40)
+
+btn4 = QPushButton("Quotes", window)
+btn4.setStyleSheet(btn_style)
+btn4.setGeometry(630, 550, 120, 40)
+
+window.show()
+sys.exit(app.exec_())
